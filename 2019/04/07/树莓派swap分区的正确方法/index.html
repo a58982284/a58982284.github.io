@@ -127,24 +127,55 @@
 </nav>
 
         <div id="main">
-            <div class="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>Hello World</h2></a>
+            <div class="post_page_title_img" style="height: 25rem;background-image: url(http://ww1.sinaimg.cn/mw690/4ebc5569gy1g1ubsydweyj24g02yohdu.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>树莓派swap分区的正确方法</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+                <p>因为我的树莓派内存只有512M，所以需要对swap分区进行扩容，作为缓存交换区使用。</p>
+<h4 id="错误的做法"><a href="#错误的做法" class="headerlink" title="错误的做法"></a>错误的做法</h4><p>下面是错误的做法！错误的做法！错误的做法！重要的事情说三遍！！！</p>
+<p>一直以来，我以为树莓派的 swap 和普通 linux 的差不多，也就照着某些网站上的方法修改树莓派的交换分区大小。</p>
+<p>熟悉的套路开始了！</p>
+<pre class=" language-shell"><code class="language-shell">cd /var
+
+# 先关闭
+sudo swapoff /var/swap
+
+# 重新设置大小1M * 1024 = 1G
+sudo dd if=/dev/zero of=swap bs=1M count=1024
+
+# 格式化
+sudo mkswap /var/swap
+
+#开启
+sudo swapon /var/swap
+
+# 查看当前已生效的swap
+swapon -s
+
+# 查看当前swap使用情况
+free -m
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>然而重启后，你就会发现树莓派的 swap 又回到还原了。</p>
+<h4 id="正确的做法"><a href="#正确的做法" class="headerlink" title="正确的做法"></a>正确的做法</h4><p>如果你按照上面的方法做了，只需删除 swap 分区：</p>
+<pre class=" language-shell"><code class="language-shell">$ sudo swapoff /var/swap
+$ sudo rm /var/swap
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p>然后开始真正的表演：</p>
+<pre><code>sudo vi /etc/dphys-swapfile
+</code></pre><pre class=" language-shell"><code class="language-shell">CONF_SWAPSIZE=1024
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<p>这一步是修改swap分区的大小。然后重新启动dphys-swapfile 文件服务：</p>
+<pre class=" language-shell"><code class="language-shell">sudo /etc/init.d/dphys-swapfile restart
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>最后查看大小：</p>
+<pre><code>$ free -h
+
+              total        used        free      shared  buff/cache   available
+Mem:           433M        132M         42M         34M        257M        215M
+Swap:          1.0G          0B        1.0G
+
+</code></pre><p>如上图所示，已经成功更改了swap分区的大小。</p>
 
             </div>
 
@@ -207,8 +238,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/04/06/hello-world/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2019/04/06/hello-world/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2019/04/07/树莓派swap分区的正确方法/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2019/04/07/树莓派swap分区的正确方法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
