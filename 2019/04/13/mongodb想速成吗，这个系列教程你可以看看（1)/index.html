@@ -1,0 +1,799 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<link rel="bookmark" type="image/x-icon" href="/img/logo_miccall.png">
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    吃土的程序员
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/mic_main.css">
+    <link rel="stylesheet" href="/css/dropdownMenu.css">
+    <meta name="keywords" content="Arthas">
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css">
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css">
+<link rel="stylesheet" href="/css/typo.css">
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Arthas</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special">
+            <ul class="menu links">
+			<!-- Homepage  主页  --> 
+			<li>
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Hexo/">Hexo</a></li><li><a class="category-link" href="/categories/Linux/">Linux</a></li><li><a class="category-link" href="/categories/Mongodb/">Mongodb</a></li><li><a class="category-link" href="/categories/Vue/">Vue</a></li><li><a class="category-link" href="/categories/python/">python</a>
+	                    </li></ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/a58982284" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="http://500px.com" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main">
+            <div class="post_page_title_img" style="height: 25rem;background-image: url(http://ww1.sinaimg.cn/mw690/4ebc5569gy1g21f118hfzj24mo2zyqv6.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>mongodb速成(一)</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="mongodb想速成吗，这个系列教程你可以看看（1）"><a href="#mongodb想速成吗，这个系列教程你可以看看（1）" class="headerlink" title="mongodb想速成吗，这个系列教程你可以看看（1）"></a>mongodb想速成吗，这个系列教程你可以看看（1）</h1><h3 id="1、mongodb简介"><a href="#1、mongodb简介" class="headerlink" title="1、mongodb简介"></a>1、mongodb简介</h3><ul>
+<li><p>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。</p>
+</li>
+<li><p>在高负载的情况下，添加更多的节点，可以保证服务器性能。</p>
+</li>
+<li><p>MongoDB 旨在为WEB应用提供可扩展的高性能数据存储解决方案。</p>
+</li>
+<li><p>MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d148ca807dec4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="2、mongodb下载地址"><a href="#2、mongodb下载地址" class="headerlink" title="2、mongodb下载地址"></a>2、mongodb下载地址</h3><p><a href="https://link.juejin.im/?target=https%3A%2F%2Fwww.mongodb.com%2Fdownload-center%23community" target="_blank" rel="noopener">www.mongodb.com/download-ce…</a> 选择适合自己的版本。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d14ccbe44b795?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<ul>
+<li>需要注意的是，例如windows下，安装完成需要把环境变量设置到你安装mongodb文件夹的bin目录下。</li>
+<li>比如我安装mongodb到E:\mongodb所以bin目录就是E:\mongodb\bin</li>
+</ul>
+<h3 id="3、mongodb-的适用场景和基本概念"><a href="#3、mongodb-的适用场景和基本概念" class="headerlink" title="3、mongodb 的适用场景和基本概念"></a>3、mongodb 的适用场景和基本概念</h3><h4 id="3-1-MongoDB适用场景"><a href="#3-1-MongoDB适用场景" class="headerlink" title="3.1 MongoDB适用场景"></a>3.1 MongoDB适用场景</h4><ul>
+<li><p>网站数据、缓存等大尺寸、低价值的数据</p>
+</li>
+<li><p>在高伸缩性的场景，用于对象及JSON数据的存储。</p>
+</li>
+</ul>
+<h4 id="3-2-MongoDB的基本概念"><a href="#3-2-MongoDB的基本概念" class="headerlink" title="3.2 MongoDB的基本概念"></a>3.2 MongoDB的基本概念</h4><p>数据库</p>
+<p>MongoDB的一个实例可以拥有一个或多个相互独立的数据库，每个数据库都有自己的集合。</p>
+<p>集合</p>
+<p>集合可以看作是拥有动态模式的表。</p>
+<p>文档</p>
+<p>文档是MongoDB中基本的数据单元，类似于RDB的行。文档是键值对的一个有序集合。在JS中，文档被表示成对象。</p>
+<p>_id</p>
+<p>每个文档都有个特殊的”_id”，在文档所属集合中是唯一的。</p>
+<p>JavaScript shell</p>
+<p>MongoDB自带了一个功能强大的JavaScript Shell，可以用于管理或操作MongoDB</p>
+<p>举例</p>
+<ul>
+<li>数据库 MongoDB的单个实例可以容纳多个独立的数据库，比如一个学生管理系统就可以对应一个数据库实例</li>
+<li>集合 数据库是由集合组成的,一个集合用来表示一个实体,如学生集合</li>
+<li><p>文档 集合是由文档组成的，一个文档表示一条记录,比如一位同学张三就是一个文档</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d15c8876100b1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+</li>
+</ul>
+<h3 id="4、添加和删除服务"><a href="#4、添加和删除服务" class="headerlink" title="4、添加和删除服务"></a>4、添加和删除服务</h3><p>添加服务 在命令行工具里</p>
+<pre><code>mongod.exe --dbpath E:\mongodata --logpath E:\mongolog --logappend --directoryperdb --serviceName mongodb --install
+复制代码
+</code></pre><ul>
+<li>–dbpath 指定数据存放目录</li>
+<li>–logpath 日志放在哪里</li>
+<li>–logappend 日志写入方式，可以给老日志加</li>
+<li>–directoryperdb 将每个数据库单独存放</li>
+<li>–serviceName 起的服务名字叫</li>
+<li><p>–install 安装服务 下图表示添加服务成功了</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1a64d210a612?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+</li>
+</ul>
+<h3 id="5、mongodb启动与连接"><a href="#5、mongodb启动与连接" class="headerlink" title="5、mongodb启动与连接"></a>5、mongodb启动与连接</h3><p>启动mongodb服务</p>
+<pre><code>mongod --dbpath=E:\Mongodb\data
+复制代码
+</code></pre><p>如果出现waiting for connections on port 27017就表示启动成功,已经在27017端口上监听了客户端的请求注：启动说明</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>–port</td>
+<td>指定服务端口号，默认端口27017</td>
+</tr>
+<tr>
+<td>–logpath</td>
+<td>指定MongoDB日志文件，注意是指定文件不是目录</td>
+</tr>
+<tr>
+<td>–logappend</td>
+<td>使用追加的方式写日志</td>
+</tr>
+<tr>
+<td>–dbpath</td>
+<td>指定数据库路径</td>
+</tr>
+<tr>
+<td>–directoryperdb</td>
+<td>设置每个数据库将被保存在一个单独的目录</td>
+</tr>
+</tbody>
+</table>
+<p>接着，再打开一个新的命令行窗口,输入</p>
+<pre><code>mongo
+复制代码
+</code></pre><p>就可以链接到数据库了</p>
+<p>最后介绍一款mongodb可视化工具 Studio3T</p>
+<p><a href="https://link.juejin.im/?target=https%3A%2F%2Fstudio3t.com%2F" target="_blank" rel="noopener">studio3t.com/</a></p>
+<h3 id="6、数据库操作"><a href="#6、数据库操作" class="headerlink" title="6、数据库操作"></a>6、数据库操作</h3><h4 id="6-1-使用数据库"><a href="#6-1-使用数据库" class="headerlink" title="6.1 使用数据库"></a>6.1 使用数据库</h4><pre><code>use database_name
+// 例如我们这里可以建一个叫school的数据库
+use school
+复制代码
+</code></pre><p>database_name 代表数据库的名字</p>
+<p>注：如果此数据库存在，则切换到此数据库下,如果此数据库还不存在也可以切过来,但是并不能立刻创建数据库 切换到 school数据库下</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1d97e08166cf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="6-2-查看所有数据库"><a href="#6-2-查看所有数据库" class="headerlink" title="6.2 查看所有数据库"></a>6.2 查看所有数据库</h4><pre><code>show dbs
+复制代码
+</code></pre><p>备注: 我们刚创建的数据库school如果不在列表内， 要显示它，我们需要向school数据库插入一些数据 db.students.insert({age:1});</p>
+<p>inert数据之后</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1dd9daeab38e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="6-3-查看当前使用的数据库"><a href="#6-3-查看当前使用的数据库" class="headerlink" title="6.3 查看当前使用的数据库"></a>6.3 查看当前使用的数据库</h4><pre><code>db
+复制代码
+</code></pre><p>注：db代表的是当前数据库 也就是school这个数据库</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1de25cd60657?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="6-4-删除数据库"><a href="#6-4-删除数据库" class="headerlink" title="6.4 删除数据库"></a>6.4 删除数据库</h4><pre><code>db.dropDatabase()
+复制代码
+</code></pre><p>school数据库就没了</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1ded938b5a7c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="7、集合操作"><a href="#7、集合操作" class="headerlink" title="7、集合操作"></a>7、集合操作</h3><h4 id="7-1-查看集合帮助"><a href="#7-1-查看集合帮助" class="headerlink" title="7.1 查看集合帮助"></a>7.1 查看集合帮助</h4><pre><code>use demo
+db.demo.help()
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1e2890d2f125?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="7-2-创建集合"><a href="#7-2-创建集合" class="headerlink" title="7.2 创建集合"></a>7.2 创建集合</h4><h4 id="7-2-1-创建一个空集合"><a href="#7-2-1-创建一个空集合" class="headerlink" title="7.2.1 创建一个空集合"></a>7.2.1 创建一个空集合</h4><pre><code>db.createCollection(collection_Name)
+复制代码
+</code></pre><p>collection_Name集合的名称</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1e4fe1ebb8af?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="7-2-2-创建集合并插入一个文档"><a href="#7-2-2-创建集合并插入一个文档" class="headerlink" title="7.2.2 创建集合并插入一个文档"></a>7.2.2 创建集合并插入一个文档</h4><p>collection_Name集合的名称 document要插入的文档</p>
+<pre><code>db.collection_Name.insert(document)
+// 例如
+db.demo.insert({age:1})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1e8fbc9b0ac0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>注：上图里的objectId是有规律的，规律如下</p>
+<p>之前我们使用MySQL等关系型数据库时，主键都是设置成自增的。但在分布式环境下，这种方法就不可行了，会产生冲突。为此，MongoDB采用了一个称之为ObjectId的类型来做主键。ObjectId是一个12字节的 BSON 类型字符串。按照字节顺序，一次代表：</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4字节：</td>
+<td>UNIX时间戳</td>
+</tr>
+<tr>
+<td>3字节：</td>
+<td>表示运行MongoDB的机器</td>
+</tr>
+<tr>
+<td>2字节：</td>
+<td>表示生成此_id的进程</td>
+</tr>
+<tr>
+<td>3字节：</td>
+<td>由一个随机数开始的计数器生成的值</td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-3-查看数据库下的集合"><a href="#7-3-查看数据库下的集合" class="headerlink" title="7.3 查看数据库下的集合"></a>7.3 查看数据库下的集合</h4><pre><code>show collections
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d1e9a2e2c2873?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="7-4-查看当前集合"><a href="#7-4-查看当前集合" class="headerlink" title="7.4 查看当前集合"></a>7.4 查看当前集合</h4><pre><code>db.getName() 或者 db
+复制代码
+</code></pre><h4 id="7-5-删除当前集合"><a href="#7-5-删除当前集合" class="headerlink" title="7.5 删除当前集合"></a>7.5 删除当前集合</h4><pre><code>db.dropDatabase()
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d3cdcdc627df6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="8-插入文档"><a href="#8-插入文档" class="headerlink" title="8. 插入文档"></a>8. 插入文档</h3><h4 id="8-1-insert"><a href="#8-1-insert" class="headerlink" title="8.1 insert"></a>8.1 insert</h4><pre><code>db.collection_name.insert(document);
+复制代码
+</code></pre><p>collection_name 集合的名字</p>
+<p>document 插入的文档</p>
+<p>注：每当插入一条新文档的时候mongodb会自动为此文档生成一个_id属性,_id一定是唯一的，用来唯一标识一个文档 _id也可以直接指定，但如果数据库中此集合下已经有此_id的话插入会失败</p>
+<pre><code>db.demo.insert({_id:1,age:1});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d3d420842f723?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d3d4e6fc976bf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="8-2-save"><a href="#8-2-save" class="headerlink" title="8.2 save"></a>8.2 save</h4><pre><code>db.collection_name.save(document)
+复制代码
+</code></pre><p>collection_name 集合的名字 document 插入的文档</p>
+<p>注：如果不指定 _id 字段 save() 方法类似于 insert() 方法。如果指定 _id 字段，则会更新该 _id 的数据。 我们save之前保存过的id=1的数据，看是不是更新了此条数据</p>
+<pre><code>db.demo.save({_id:1, age:2})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/3/31/169d3dc7b7e9d335?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="9-更新文档"><a href="#9-更新文档" class="headerlink" title="9. 更新文档"></a>9. 更新文档</h3><pre><code>db.collection.update(
+   &lt;query&gt;,
+   &lt;updateObj&gt;,
+   {
+     upsert: &lt;boolean&gt;,
+     multi: &lt;boolean&gt;
+   }
+)
+复制代码
+</code></pre><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>查询条件,指定要更新符合哪些条件的文档</td>
+</tr>
+<tr>
+<td>update</td>
+<td>更新后的对象或指定一些更新的操作符</td>
+</tr>
+<tr>
+<td>$set</td>
+<td>在原基础上累加</td>
+</tr>
+<tr>
+<td>upsert</td>
+<td>可选，这个参数的意思是，如果不存在符合条件的记录时是否插入updateObj. 默认是false,不插入。</td>
+</tr>
+<tr>
+<td>multi</td>
+<td>可选，mongodb 默认只更新找到的第一条记录，如果这个参数为true,就更新所有符合条件的记录。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="9-1-更新文档"><a href="#9-1-更新文档" class="headerlink" title="9.1 更新文档"></a>9.1 更新文档</h4><pre><code>db.demo.insert({name: &#39;zhangsan&#39;});
+db.demo.update({name:&#39;zhangsan&#39;},{age:12})
+复制代码
+</code></pre><p><img src="data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;1046&quot; height=&quot;699&quot;&gt;&lt;/svg" alt></p>
+<h4 id="9-2-upsert"><a href="#9-2-upsert" class="headerlink" title="9.2 upsert"></a>9.2 upsert</h4><p>将students集合中数据中name是lisi的值修改为lisi,因为原表根本不存在name：lisi的，原本不会插入这一条数据，但是upsert选项设为了true就插入成功了</p>
+<pre><code>db.demo.update({name:&#39;lisi&#39;}, {name:&#39;lisi&#39;}, {upsert:true});
+复制代码
+</code></pre><p><img src="data:image/svg+xml;utf8,&lt;?xml version=&quot;1.0&quot;?&gt;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; width=&quot;1200&quot; height=&quot;727&quot;&gt;&lt;/svg" alt></p>
+<h4 id="9-3-multi"><a href="#9-3-multi" class="headerlink" title="9.3 multi"></a>9.3 multi</h4><p>如果有多条age是1的数据只更新一条,如果想全部更新需要指定{multi:true}的参数</p>
+<pre><code>db.school.insert({age:1});
+db.school.insert({age:1});
+db.school.insert({age:1});
+db.school.update({age:1}, {$set:{name:&#39;lisi&#39;}}, {multi:true});
+db.school.find({})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/2/169dd58662840cf1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="10、更新操作符"><a href="#10、更新操作符" class="headerlink" title="10、更新操作符"></a>10、更新操作符</h3><h4 id="10-1-set"><a href="#10-1-set" class="headerlink" title="10.1 $set"></a>10.1 $set</h4><p>直接指定更新后的值</p>
+<pre><code>use c3;
+db.c3.insert({name:&#39;a&#39;});
+db.c3.update({name:&#39;a&#39;},{$set:{age:10}});
+db.c3.find({})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/2/169dd6f92d78334a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-2-inc"><a href="#10-2-inc" class="headerlink" title="10.2 $inc"></a>10.2 $inc</h4><p>在原基础上累加</p>
+<pre><code>db.c3.update({name:&#39;a&#39;},{$inc:{age:1}});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/2/169dd7736611321f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-3-unset"><a href="#10-3-unset" class="headerlink" title="10.3 $unset"></a>10.3 $unset</h4><p>删除指定的键</p>
+<pre><code>db.c3.update({name:&#39;2&#39;},{$unset:{age:11}});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/6/169f15de2f23415a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-4-push"><a href="#10-4-push" class="headerlink" title="10.4 $push"></a>10.4 $push</h4><p>向数组中添加元素</p>
+<pre><code>var result = db.student.update({name:&#39;张三&#39;},{
+    $push:{&quot;hobbys&quot;:&quot;smoking&quot;}
+});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/6/169f160f630c54cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-5-ne"><a href="#10-5-ne" class="headerlink" title="10.5 $ne"></a>10.5 $ne</h4><p>$ne类似于MYSQL的 not in 或者not exists</p>
+<pre><code>db.c3.update({hobbys:{$ne:&quot;eating&quot;}},{$push:{&quot;hobbys&quot;:&quot;sleeping&quot;}});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/6/169f24acb9039607?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-6-addToSet"><a href="#10-6-addToSet" class="headerlink" title="10.6 $addToSet"></a>10.6 $addToSet</h4><p>向集合中添加元素</p>
+<pre><code>db.c3.update({a:1},{$addToSet:{&quot;hobbys&quot;:&quot;smoking&quot;}});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/6/169f24dc19ab17ff?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-7-each"><a href="#10-7-each" class="headerlink" title="10.7 $each"></a>10.7 $each</h4><p>把数组中的元素逐个添加到集合中</p>
+<pre><code>db.a.insert({name:&#39;a&#39;, hobbys:[1,2]});
+db.a.update({name:&#39;a&#39;},{$addToSet:{hobbys:{$each:[3,4]}}});
+db.a.find()
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fbfba9faa8cd3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-8-pop"><a href="#10-8-pop" class="headerlink" title="10.8 $pop"></a>10.8 $pop</h4><p>从数组中移除指定的索引中对应的元素</p>
+<ul>
+<li>{$pop:{“key”:1}}从数组末尾删除一个与元素</li>
+<li>{$pop:{“key”:-1}}从数组开头删除一个与元素</li>
+</ul>
+<pre><code>db.c3.update({name:&#39;a&#39;},{$pop:{hobbys:1}});
+db.c3.find()
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fbfce0d4ae998?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="10-9-修改指定索引元素"><a href="#10-9-修改指定索引元素" class="headerlink" title="10.9 修改指定索引元素"></a>10.9 修改指定索引元素</h4><pre><code>db.c3.update({name:&#39;zfpx1&#39;},{$set:{&quot;hobbys.0&quot;:&quot;smoking2&quot;}});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc0ce554cb900?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="11、文档的删除"><a href="#11、文档的删除" class="headerlink" title="11、文档的删除"></a>11、文档的删除</h3><p>remove方法是用来移除集合中的数据</p>
+<h4 id="11-1-语法"><a href="#11-1-语法" class="headerlink" title="11.1 语法"></a>11.1 语法</h4><pre><code>db.collection.remove(
+   &lt;query&gt;,
+   {
+     justOne: &lt;boolean&gt;
+   }
+)
+复制代码
+</code></pre><h4 id="11-2-参数"><a href="#11-2-参数" class="headerlink" title="11.2 参数"></a>11.2 参数</h4><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query</td>
+<td>（可选）删除的文档的条件。</td>
+</tr>
+<tr>
+<td>justOne</td>
+<td>（可选）如果设为 true 或 1，则只删除匹配到的多个文档中的第一个</td>
+</tr>
+</tbody>
+</table>
+<h4 id="11-3-实例"><a href="#11-3-实例" class="headerlink" title="11.3 实例"></a>11.3 实例</h4><p>删除worker集合里name是zfpx2的所有文档数据</p>
+<pre><code>db.c3.remove({name:&#39;a&#39;});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc14e845f7131?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>即使匹配多条也只删除一条</p>
+<pre><code>db.c3.remove({name:&#39;a&#39;},{justOne:true});
+复制代码
+</code></pre><h3 id="12、查询文档"><a href="#12、查询文档" class="headerlink" title="12、查询文档"></a>12、查询文档</h3><h4 id="12-1-find"><a href="#12-1-find" class="headerlink" title="12.1 find"></a>12.1 find</h4><p>语法</p>
+<pre><code>db.collection_name.find()
+复制代码
+</code></pre><p>参数</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>collection_name</td>
+<td>集合的名字</td>
+</tr>
+</tbody>
+</table>
+<p>实例</p>
+<p>查询c3下所有的文档</p>
+<pre><code>db.students.find()
+复制代码
+</code></pre><h4 id="12-2-查询指定列"><a href="#12-2-查询指定列" class="headerlink" title="12.2 查询指定列"></a>12.2 查询指定列</h4><p>语法</p>
+<pre><code>db.collection_name.find({queryWhere},{key:1,key:1})
+复制代码
+</code></pre><p>参数列表</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>collection_name</td>
+<td>集合的名字</td>
+</tr>
+<tr>
+<td>queryWhere</td>
+<td>参阅查询条件操作符</td>
+</tr>
+<tr>
+<td>key</td>
+<td>指定要返回的列</td>
+</tr>
+<tr>
+<td>1</td>
+<td>表示要显示</td>
+</tr>
+</tbody>
+</table>
+<p>实例</p>
+<p>只返回显示age列</p>
+<pre><code>db.c3.insert([{name:1,age:2},{name:1,age:3},{name:1,age:4}]);
+db.c3.find({},{_id:0, age:1});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc201d47e567e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="12-3-findOne"><a href="#12-3-findOne" class="headerlink" title="12.3 findOne"></a>12.3 findOne</h4><p>查询匹配结果的第一条数据 语法</p>
+<pre><code>db.collection_name.findOne()
+复制代码
+</code></pre><p>实例</p>
+<pre><code>db.c3.findOne()`
+复制代码
+</code></pre><h4 id="12-4-in"><a href="#12-4-in" class="headerlink" title="12.4 $in"></a>12.4 $in</h4><p>查询字段在某个范围内</p>
+<pre><code>db.c3.insert([{age:30, name:1},{age:100, name:2},{age:40, name:3},{age:60, name:4}])
+db.c3.find({age:{$in:[30,100]}},{name:1,age:1});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc25edf6a29be?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="12-5-nin"><a href="#12-5-nin" class="headerlink" title="12.5 $nin"></a>12.5 $nin</h4><p>查询字段不在某个范围内</p>
+<pre><code>db.c3.find({age:{$nin:[30,100]}},{name:1,age:1});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc2761d15afe5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="12-6-not"><a href="#12-6-not" class="headerlink" title="12.6 $not"></a>12.6 $not</h4><p>对特定条件取反</p>
+<pre><code>db.c3.find({age:{$not:{$gte:20,$lte:30}}});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc2945be91b1f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="12-7-array"><a href="#12-7-array" class="headerlink" title="12.7 array"></a>12.7 array</h4><p>对数组的查询</p>
+<pre><code>// 按所有元素匹配
+ db.c3.find({friends:[ &quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot; ]});
+
+//匹配一项 包含A的就可以
+db.c3.find({friends:&quot;A&quot;});
+
+// $all 必须同时包含A B
+db.c3.find({friends:{$all:[&#39;A&#39;,&quot;B&quot;]}});
+
+// $in 或者关系 ，包含A或者B
+db.c3.find({friends:{$in:[&#39;A&#39;,&quot;B&quot;]}});
+//$size 按数组的长度去匹配
+db.c3.find({friends:{$size:4}});
+
+//$slice 只返回数组中的某一部分
+db.c3.find({friends:{$size:5}},{name:1,friends:{$slice:2}});
+db.c3.find({friends:{$size:5}},{name:1,friends:{$slice:-2}});
+$slice:[&quot;$array&quot;, [startIndex, ] length ] （startIndex可以省略，默认从0开始）
+db.c3.find({},{friends:{$slice:[0,3]}});
+复制代码
+</code></pre><h4 id="12-8-where"><a href="#12-8-where" class="headerlink" title="12.8 where"></a>12.8 where</h4><pre><code>db.c3.find({$where:&quot;this.age&gt;30&quot;},{name:1,age:1});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc68e1b8b65e9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="12-9-cursor"><a href="#12-9-cursor" class="headerlink" title="12.9 cursor"></a>12.9 cursor</h4><p>游标不是查询结果，而是查询的一个返回资源或者接口，通过这个接口，可以逐条读取数据</p>
+<pre><code>var result = db.student.find();
+
+while(result.hasNext()){
+    printjson(result.next());
+}
+复制代码
+</code></pre><h3 id="13、条件操作符"><a href="#13、条件操作符" class="headerlink" title="13、条件操作符"></a>13、条件操作符</h3><p>条件操作符用于比较两个表达式并从mongoDB集合中获取数据</p>
+<h4 id="13-1-大于、大于等于、小于、小于等于操作符"><a href="#13-1-大于、大于等于、小于、小于等于操作符" class="headerlink" title="13.1 大于、大于等于、小于、小于等于操作符"></a>13.1 大于、大于等于、小于、小于等于操作符</h4><p>参数</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$gt</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>$gte</td>
+<td>大于等于</td>
+</tr>
+<tr>
+<td>$lt</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>$lte</td>
+<td>小于等于</td>
+</tr>
+</tbody>
+</table>
+<h4 id="13-2-使用-id进行查询"><a href="#13-2-使用-id进行查询" class="headerlink" title="13.2 使用 _id进行查询"></a>13.2 使用 _id进行查询</h4><p>语法</p>
+<pre><code>db.collectoin_name.find({&quot;_id&quot; : ObjectId(&quot;value&quot;)})
+复制代码
+</code></pre><p>查询_id是 562af23062d5a57609133974 数据</p>
+<pre><code>db.stuc3dents.find({_id:ObjectId(&quot;5adb666ecd738e9771638985&quot;)});
+复制代码
+</code></pre><h4 id="13-8-查询结果集的条数"><a href="#13-8-查询结果集的条数" class="headerlink" title="13.8 查询结果集的条数"></a>13.8 查询结果集的条数</h4><p>语法</p>
+<pre><code>db.collectoin_name.find().count();
+复制代码
+</code></pre><pre><code>db.c3.find().count()
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fc74d40128ff3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="13-9-正则匹配"><a href="#13-9-正则匹配" class="headerlink" title="13.9 正则匹配"></a>13.9 正则匹配</h4><p>语法</p>
+<pre><code>db.collection.find({key:/value/})
+复制代码
+</code></pre><p>参数</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>collectoin_name</td>
+<td>集合名称</td>
+</tr>
+<tr>
+<td>key</td>
+<td>字段</td>
+</tr>
+<tr>
+<td>value</td>
+<td>值</td>
+</tr>
+</tbody>
+</table>
+<p>查询name里包含joe的数据,正则只能匹配字符串</p>
+<pre><code>db.user.find({name:/joe/})
+复制代码
+</code></pre><h3 id="14、与和或"><a href="#14、与和或" class="headerlink" title="14、与和或"></a>14、与和或</h3><h4 id="14-1-and"><a href="#14-1-and" class="headerlink" title="14.1 and"></a>14.1 and</h4><p>find方法可以传入多个键(key)，每个键(key)以逗号隔开</p>
+<p>语法</p>
+<pre><code>db.collection_name.find({key1:value1, key2:value2})
+复制代码
+</code></pre><p>查询name是1并且age是30的数据</p>
+<pre><code>db.students.find({name:1,age:30})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fcaf685c27445?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="14-2-or"><a href="#14-2-or" class="headerlink" title="14.2 or"></a>14.2 or</h4><p>语法</p>
+<pre><code>db.collection_name.find(
+   {
+      $or: [
+   {key1: value1}, {key2:value2}
+      ]
+   }
+)
+复制代码
+</code></pre><p>查询age = 30 或者 age = 100 的数据</p>
+<pre><code>db.c3.find({$or:[{age:30},{age:100}]})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fcb381bf58b79?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="14-3-and和or联用"><a href="#14-3-and和or联用" class="headerlink" title="14.3 and和or联用"></a>14.3 and和or联用</h4><p>语法</p>
+<pre><code>db.collection_name.find(
+   {
+     key1:value1,
+     key2:value2,
+     $or: [
+   {key1: value1},
+   {key2:value2}
+     ]
+   }
+
+)
+复制代码
+</code></pre><p>实例 查询 age是30 并且 name是1或者 name是 3 的数据</p>
+<pre><code>db.c3.find({age: 30, $or:[{name:1},{age:3}]})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fcb7ea7d86bad?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="15、分页查询"><a href="#15、分页查询" class="headerlink" title="15、分页查询"></a>15、分页查询</h3><h4 id="15-1-limit"><a href="#15-1-limit" class="headerlink" title="15.1 limit"></a>15.1 limit</h4><p>读取指定数量的数据记录 语法</p>
+<pre><code>db.collectoin_name.find().limit(number)
+复制代码
+</code></pre><pre><code>var a = [];
+for(var i = 0;i&lt;10;i++){
+    a.push({age:i})
+};
+db.c3.insert(a);
+db.students.find().limit(3)
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fcc7f79f79a96?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="15-2-skip"><a href="#15-2-skip" class="headerlink" title="15.2 skip"></a>15.2 skip</h4><p>跳过指定数量的数据，skip方法同样接受一个数字参数作为跳过的记录条数 语法</p>
+<pre><code>db.collectoin_name.find().skip(number)
+复制代码
+</code></pre><pre><code>db.c3.find().skip(3)
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fd17da591e667?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="15-3-skip-limit"><a href="#15-3-skip-limit" class="headerlink" title="15.3 skip+limit"></a>15.3 skip+limit</h4><p>通常用这种方式来实现分页功能 语法</p>
+<pre><code>db.collectoin_name.find().skip(skipNum).limit(limitNum)
+复制代码
+</code></pre><pre><code>db.c3.find().skip(3).limit(3);
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/8/169fd198eaa5d0f5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="15-4-sort排序"><a href="#15-4-sort排序" class="headerlink" title="15.4 sort排序"></a>15.4 sort排序</h4><p>sort()方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，其中 1 为升序排列，而-1是用于降序排列。 语法</p>
+<pre><code>db.collectoin_name.find().sort({key:1})
+db.collectoin_name.find().sort({key:-1})
+复制代码
+</code></pre><pre><code>db.c3
+![](https://user-gold-cdn.xitu.io/2019/4/9/169fff28b40c6b57?w=502&amp;h=220&amp;f=jpeg&amp;s=21589).find().sort({age:1})
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/04/13/mongodb想速成吗，这个系列教程你可以看看（1)/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2019/04/13/mongodb想速成吗，这个系列教程你可以看看（1)/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
