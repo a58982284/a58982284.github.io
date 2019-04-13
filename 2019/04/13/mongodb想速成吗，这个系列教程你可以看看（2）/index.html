@@ -1,0 +1,577 @@
+<!DOCTYPE HTML>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<link rel="bookmark" type="image/x-icon" href="/img/logo_miccall.png">
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    吃土的程序员
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/mic_main.css">
+    <link rel="stylesheet" href="/css/dropdownMenu.css">
+    <meta name="keywords" content="Arthas">
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css">
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+</head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css">
+<link rel="stylesheet" href="/css/typo.css">
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Arthas</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special">
+            <ul class="menu links">
+			<!-- Homepage  主页  --> 
+			<li>
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        <a class="category-link" href="/categories/Hexo/">Hexo</a></li><li><a class="category-link" href="/categories/Linux/">Linux</a></li><li><a class="category-link" href="/categories/Vue/">Vue</a></li><li><a class="category-link" href="/categories/python/">python</a>
+	                    </li></ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="https://github.com/a58982284" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="500px" href="http://500px.com" target="_blank" rel="noopener">
+                            <i class="icon fa fa-500px"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main">
+            <div class="post_page_title_img" style="height: 25rem;background-image: url(http://ww1.sinaimg.cn/mw690/4ebc5569gy1g21epnm3s3j24av2wmnpf.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>mongodb想速成吗，这个系列教程你可以看看（2）</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <p>这个mongodb速成文章第二篇，第一篇最基础的请看下面链接（希望给个赞哦，比心^^）</p>
+<p><a href="https://juejin.im/post/5ca0110ee51d45452a07916b" target="_blank" rel="noopener">mongodb想速成吗，这个系列教程你可以看看（1）</a></p>
+<h3 id="1、通过配置项启动数据库"><a href="#1、通过配置项启动数据库" class="headerlink" title="1、通过配置项启动数据库"></a>1、通过配置项启动数据库</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-dbpath</td>
+<td>指定数据库文件的目录</td>
+</tr>
+<tr>
+<td>–port</td>
+<td>端口 默认是27017 28017</td>
+</tr>
+<tr>
+<td>–fork</td>
+<td>以后台守护的方式进行启动</td>
+</tr>
+<tr>
+<td>–logpath</td>
+<td>指定日志文件输出路径</td>
+</tr>
+<tr>
+<td>–config</td>
+<td>指定一个配置文件</td>
+</tr>
+<tr>
+<td>–auth</td>
+<td>以安全方式启动数据库，默认不验证</td>
+</tr>
+</tbody>
+</table>
+<p>首先需要建立一个mongo.conf文件，通过文件来启动mongodb服务器</p>
+<h4 id="1-1-为什么要这么做"><a href="#1-1-为什么要这么做" class="headerlink" title="1.1 为什么要这么做"></a>1.1 为什么要这么做</h4><p>把常用配置写在一个文件里，这样不用每次都自己输入参数，提高易维护性</p>
+<h4 id="1-2-mongo-conf"><a href="#1-2-mongo-conf" class="headerlink" title="1.2 mongo.conf"></a>1.2 mongo.conf</h4><pre><code>dbpath=F:\mongo\data
+logpath=F:\mongo
+port=50001
+复制代码
+</code></pre><p>注意data目录要提前创建好</p>
+<h4 id="1-3-启动服务器"><a href="#1-3-启动服务器" class="headerlink" title="1.3 启动服务器"></a>1.3 启动服务器</h4><pre><code>mongod --config mongo.conf
+复制代码
+</code></pre><h4 id="1-4-启动客户端"><a href="#1-4-启动客户端" class="headerlink" title="1.4 启动客户端"></a>1.4 启动客户端</h4><pre><code>mongo --port 50001
+复制代码
+</code></pre><h3 id="2、-导入导出数据"><a href="#2、-导入导出数据" class="headerlink" title="2、 导入导出数据"></a>2、 导入导出数据</h3><p>这命令是保存成了文件格式</p>
+<ul>
+<li>mongoimport 导出数据</li>
+<li>mongoexport 导入数据</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h [ –host ]</td>
+<td>连接的数据库</td>
+</tr>
+<tr>
+<td>–port</td>
+<td>端口号</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>用户名</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>导出的数据库</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>导出的数据库</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>指定导出的集合</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>导出的文件存储路径</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>进行过滤</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-1-准备数据"><a href="#2-1-准备数据" class="headerlink" title="2.1 准备数据"></a>2.1 准备数据</h4><pre><code>use c1;
+var data =[
+ {name: &quot;mx0&quot;, index: 0},
+ {name: &quot;mx1&quot;, index: 1},
+ {name: &quot;mx2&quot;, index: 2},
+ {name: &quot;mx3&quot;, index: 3},
+ {name: &quot;mx4&quot;, index: 4},
+ {name: &quot;mx5&quot;, index: 5},
+ {name: &quot;mx6&quot;, index: 6},
+ {name: &quot;mx7&quot;, index: 7},
+ {name: &quot;mx8&quot;, index: 8},
+ {name: &quot;mx9&quot;, index: 9}
+];
+db.c1.insert(data);
+db.c1.find();
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/10/16a0664df331a76d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>2.2 备份记录</p>
+<pre><code>mongoexport -h 127.0.0.1 --port 50001  -d c1 -c c1 -o c1.bak
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/10/16a068e4dce7cf0d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>2.3 删除记录</p>
+<pre><code>db.c1.remove({});
+db.c1.find()
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/10/16a068f9874ec18e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>2.4 导入记录 这时候再把数据导入进来</p>
+<pre><code>mongoimport -h 127.0.0.1 --port 50001 -d c1 -c c1 --file c1.bak
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/10/16a070a0b2b28793?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="3、-备份与恢复"><a href="#3、-备份与恢复" class="headerlink" title="3、 备份与恢复"></a>3、 备份与恢复</h3><h4 id="3-1-备份和上面的导出数据有什么区别"><a href="#3-1-备份和上面的导出数据有什么区别" class="headerlink" title="3.1 备份和上面的导出数据有什么区别"></a>3.1 备份和上面的导出数据有什么区别</h4><p>上面导出数据只能导出json格式的，但有时候我们的mongodb会存2进制的数据，这个时候json不支持这种数据类型，所以需要我们接下来的这种方式来导出数据。</p>
+<h4 id="3-1-mongodump"><a href="#3-1-mongodump" class="headerlink" title="3.1 mongodump"></a>3.1 mongodump</h4><p>在Mongodb中我们使用mongodump命令来备份MongoDB数据。该命令可以导出所有数据到指定目录中。</p>
+<pre><code>mongodump -h dbhost -d dbname -o dbdirectory
+复制代码
+</code></pre><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h</td>
+<td>MongDB所在服务器地址，例如：127.0.0.1，当然也可以指定端口号：127.0.0.1:27017</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>需要备份的数据库实例，例如：test</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>备份的数据存放位置</td>
+</tr>
+</tbody>
+</table>
+<pre><code>mongodump -h 127.0.0.1:50001 -d c1 -o c1.dmp
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/10/16a0709d5f099901?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<p>3.2 mongorestore mongodb使用 mongorestore 命令来恢复备份的数据。</p>
+<p>–host MongoDB所在服务器地址 –db -d 需要恢复的数据库实例 最后的一个参数，设置备份数据所在位置 mongorestore data.dmp</p>
+<pre><code>mongorestore -h 127.0.0.1:50001 -d c2 c1.dmp/c1
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/10/16a0709bdac69a39?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="5、-锁定和解锁数据库"><a href="#5、-锁定和解锁数据库" class="headerlink" title="5、 锁定和解锁数据库"></a>5、 锁定和解锁数据库</h3><p>为了数据的完整性和一致性，导出前要先锁定写入，导出后再解锁。</p>
+<pre><code>&gt; use admin;
+switched to db admin
+&gt; db.runCommand({fsync:1,lock:1});
+{
+        &quot;info&quot; : &quot;now locked against writes, use db.fsyncUnlock() to unlock&quot;,
+        &quot;seeAlso&quot; : &quot;http://dochub.mongodb.org/core/fsynccommand&quot;,
+        &quot;ok&quot; : 1
+}
+&gt; db.fsyncUnlock();
+{ &quot;ok&quot; : 1, &quot;info&quot; : &quot;unlock completed&quot; }
+复制代码
+</code></pre><p>首先会把缓冲区数据暴力刷入硬盘，然后给数据库一个写入锁，其他实例的写入操作全部被阻塞，直到fsync+lock释放锁为止</p>
+<h3 id="6-用户管理"><a href="#6-用户管理" class="headerlink" title="6. 用户管理"></a>6. 用户管理</h3><h4 id="6-1-查看角色"><a href="#6-1-查看角色" class="headerlink" title="6.1 查看角色"></a>6.1 查看角色</h4><pre><code>show roles;
+复制代码
+</code></pre><p>内置角色</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库用户角色</td>
+<td>read、readWrite</td>
+</tr>
+<tr>
+<td>数据库管理角色</td>
+<td>dbAdmin、dbOwner、userAdmin</td>
+</tr>
+<tr>
+<td>集群管理角色</td>
+<td>clusterAdmin、clusterManager、clusterMonitor、hostManage</td>
+</tr>
+<tr>
+<td>所有数据库角色</td>
+<td>readAnyDatabase、readWriteAnyDatabase、userAdminAnyDatabase、dbAdminAnyDatabase</td>
+</tr>
+<tr>
+<td>超级用户角色</td>
+<td>root</td>
+</tr>
+<tr>
+<td>内部角色</td>
+<td>__system</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-2-创建用户的方法"><a href="#6-2-创建用户的方法" class="headerlink" title="6.2 创建用户的方法"></a>6.2 创建用户的方法</h4><pre><code>use admin;
+db.createUser({user:&#39;mx&#39;,pwd:&#39;123456&#39;,roles:[{role:&#39;read&#39;,db:&#39;c1&#39;}]});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/11/16a0b056e7cc0fb9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="6-3-查看用户的权限"><a href="#6-3-查看用户的权限" class="headerlink" title="6.3 查看用户的权限"></a>6.3 查看用户的权限</h4><pre><code>db.runCommand({usersInfo:&#39;mx&#39;,showPrivileges:true});
+复制代码
+</code></pre><h4 id="6-4-服务器启动权限认证"><a href="#6-4-服务器启动权限认证" class="headerlink" title="6.4 服务器启动权限认证"></a>6.4 服务器启动权限认证</h4><pre><code>mongod --dbpath=F:\data --auth
+复制代码
+</code></pre><h4 id="6-5-用户登录和修改密码"><a href="#6-5-用户登录和修改密码" class="headerlink" title="6.5 用户登录和修改密码"></a>6.5 用户登录和修改密码</h4><pre><code>use admin;
+db.auth(&#39;mx&#39;,&#39;123456&#39;)
+
+db.changeUserPassword(&#39;mx2&#39;,&#39;123&#39;);
+db.auth(&#39;mx2&#39;,&#39;123&#39;)
+复制代码
+</code></pre><h3 id="7-数据库高级命令"><a href="#7-数据库高级命令" class="headerlink" title="7. 数据库高级命令"></a>7. 数据库高级命令</h3><h4 id="7-1-准备数据"><a href="#7-1-准备数据" class="headerlink" title="7.1 准备数据"></a>7.1 准备数据</h4><pre><code>var c1 = [
+        {provience:&#39;北京&#39;,home:&#39;北京&#39;,age:1},
+        {provience:&#39;北京&#39;,home:&#39;北京&#39;,age:2},
+        {provience:&#39;北京&#39;,home:&#39;北京&#39;,age:3},
+        {provience:&#39;广东&#39;,home:&#39;广州&#39;,age:1},
+        {provience:&#39;广东&#39;,home:&#39;佛山&#39;,age:2},
+        {provience:&#39;广东&#39;,home:&#39;东莞&#39;,age:3}
+]
+db.c1.insert(c1);
+复制代码
+</code></pre><h4 id="7-2-count"><a href="#7-2-count" class="headerlink" title="7.2 count"></a>7.2 count</h4><p>查看记录数</p>
+<pre><code>db.c1.find().count();
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/11/16a0bc319ed723cb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="7-3-查找不重复的值"><a href="#7-3-查找不重复的值" class="headerlink" title="7.3 查找不重复的值"></a>7.3 查找不重复的值</h4><p>distinct</p>
+<pre><code>db.runCommand({distinct:&#39;c1&#39;,key:&#39;home&#39;}).values;
+// [ &quot;北京&quot;, &quot;广东&quot; ]
+复制代码
+</code></pre><h4 id="7-3-group-分组"><a href="#7-3-group-分组" class="headerlink" title="7.3 group 分组"></a>7.3 group 分组</h4><pre><code>db.runCommand({
+        group:{
+                ns:集合名称，
+                key:分组的键,
+                initial:初始值,
+                $reduce:分解器
+                query:条件,
+                finalize:完成时的处理器
+        }
+});
+复制代码
+</code></pre><h4 id="7-3-1-按城市分组"><a href="#7-3-1-按城市分组" class="headerlink" title="7.3.1 按城市分组"></a>7.3.1 按城市分组</h4><pre><code>db.runCommand({
+    group: {
+        ns: &#39;c1&#39;,
+        key: { provience:1 },
+        query: {age:{$gt:1}},
+        initial: {total: 0},
+        $reduce:function(doc, initial){
+            initial.total+=doc.age
+        }
+    }
+})
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/11/16a0bc2d6aed8f3b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="7-4-删除集合"><a href="#7-4-删除集合" class="headerlink" title="7.4 删除集合"></a>7.4 删除集合</h4><pre><code>db.runCommand({drop:&#39;c1&#39;});
+复制代码
+</code></pre><h4 id="7-5-runCommand常用命令"><a href="#7-5-runCommand常用命令" class="headerlink" title="7.5 runCommand常用命令"></a>7.5 runCommand常用命令</h4><pre><code>db.runCommand({buildInfo:1});
+复制代码
+</code></pre><p>可以看见有操作系统信息是windows，架构师x86_64,等等系统的信息</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0f687f6b0170b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<pre><code>db.runCommand({getLastError:&quot;c1&quot;});
+复制代码
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0f6a993ba8cca?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h3 id="8-什么固定集合"><a href="#8-什么固定集合" class="headerlink" title="8. 什么固定集合"></a>8. 什么固定集合</h3><p>MongoDB 固定集合（Capped Collections）是性能出色且有着固定大小的集合，对于大小固定，我们可以想象其就像一个环形队列，当集合空间用完后，再插入的元素就会覆盖最初始的头部的元素！</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/12/16a0f85c28ae47fb?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<h4 id="8-1-特性"><a href="#8-1-特性" class="headerlink" title="8.1 特性"></a>8.1 特性</h4><ul>
+<li>没有索引</li>
+<li>插入和查询速度速度非常快 不需要重新分配空间</li>
+<li>特别适合存储日志</li>
+</ul>
+<h4 id="8-2-创建固定集合"><a href="#8-2-创建固定集合" class="headerlink" title="8.2 创建固定集合"></a>8.2 创建固定集合</h4><ul>
+<li>我们通过createCollection来创建一个固定集合，且capped选项设置为true：</li>
+<li>还可以指定文档个数,加上max:1000属性：</li>
+<li>判断集合是否为固定集合: db.logs.isCapped()</li>
+<li>size 是整个集合空间大小，单位为【KB】</li>
+<li>max 是集合文档个数上线，单位是【个】</li>
+<li>如果空间大小到达上限，则插入下一个文档时，会覆盖第一个文档；如果文档个数到达上限，同样插入下一个文档时，会覆盖第一个文档。两个参数上限判断取的是【与】的逻辑。</li>
+<li>capped 封顶的</li>
+</ul>
+<pre><code> db.createCollection(&#39;logs&#39;,{size:50,max:5,capped:true});
+复制代码
+</code></pre><h4 id="8-3-非固定集合转为固定集合"><a href="#8-3-非固定集合转为固定集合" class="headerlink" title="8.3 非固定集合转为固定集合"></a>8.3 非固定集合转为固定集合</h4><pre><code>db.runCommand({convertToCapped:&quot;logs&quot;,size:5});
+复制代码
+</code></pre><h3 id="9-gridfs"><a href="#9-gridfs" class="headerlink" title="9. gridfs"></a>9. gridfs</h3><ul>
+<li>gridfs是mongodb自带的文件系统，使用二进制存储文件。</li>
+<li>mongodb可以以BSON格式保存二进制对象。</li>
+<li>但是BSON对象的体积不能超过4M。所以mongodb提供了mongofiles。它可以把一个大文件透明地分割成小文件（256K），从而保存大体积的数据。</li>
+<li>GridFS 用于存储和恢复那些超过16M（BSON文件限制）的文件(如：图片、音频、视频等)。</li>
+<li>GridFS 用两个集合来存储一个文件：fs.files与fs.chunks。</li>
+<li>每个文件的实际内容被存在chunks(二进制数据)中,和文件有关的meta数据(filename,content_type,还有用户自定义的属性)将会被存在files集合中。</li>
+</ul>
+<h4 id="9-1-上传一个文件"><a href="#9-1-上传一个文件" class="headerlink" title="9.1 上传一个文件"></a>9.1 上传一个文件</h4><table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>数据库的名称</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>源文件的位置</td>
+</tr>
+<tr>
+<td>put</td>
+<td>指定文件名</td>
+</tr>
+</tbody>
+</table>
+<pre><code>// test.txt必须创建在当前目录
+mongofiles -d myfiles put test.txt
+复制代码
+</code></pre><h4 id="9-2-获取并下载文件"><a href="#9-2-获取并下载文件" class="headerlink" title="9.2 获取并下载文件"></a>9.2 获取并下载文件</h4><pre><code>mongofiles -d myfiles  get &#39;test.txt&#39;
+复制代码
+</code></pre><h4 id="9-3-查看所有文件"><a href="#9-3-查看所有文件" class="headerlink" title="9.3 查看所有文件"></a>9.3 查看所有文件</h4><pre><code>mongofiles -d myfiles  list
+&gt;db.fs.files.find()
+&gt;db.fs.chunks.find()
+复制代码
+</code></pre><h4 id="9-4-删除文件"><a href="#9-4-删除文件" class="headerlink" title="9.4 删除文件"></a>9.4 删除文件</h4><pre><code>mongofiles -d myfiles delete &quot;test.txt&quot;
+</code></pre>
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/04/13/mongodb想速成吗，这个系列教程你可以看看（2）/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2019/04/13/mongodb想速成吗，这个系列教程你可以看看（2）/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
