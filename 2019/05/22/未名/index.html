@@ -127,57 +127,53 @@
 </nav>
 
         <div id="main">
-            <div class="post_page_title_img" style="height: 25rem;background-image: url(http://ww1.sinaimg.cn/mw690/4ebc5569gy1g1ubsydweyj24g02yohdu.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>树莓派swap分区的正确方法</h2></a>
+            <div class="post_page_title_img" style="height: 25rem;background-image: url(http://ww1.sinaimg.cn/mw690/4ebc5569gy1g39p6z9fcoj264w43c7wp.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;">
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2>未名</h2></a>
             </div>
             <!-- Post -->
             <div class="typo" style="padding: 3rem;">
-                <p>因为我的树莓派内存只有512M，所以需要对swap分区进行扩容，作为缓存交换区使用。</p>
-<h4 id="错误的做法"><a href="#错误的做法" class="headerlink" title="错误的做法"></a>错误的做法</h4><p>下面是错误的做法！错误的做法！错误的做法！重要的事情说三遍！！！</p>
-<p>一直以来，我以为树莓派的 swap 和普通 linux 的差不多，也就照着某些网站上的方法修改树莓派的交换分区大小。</p>
-<p>熟悉的套路开始了！</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var
-
-<span class="token comment" spellcheck="true"># 先关闭</span>
-<span class="token function">sudo</span> swapoff /var/swap
-
-<span class="token comment" spellcheck="true"># 重新设置大小1M * 1024 = 1G</span>
-<span class="token function">sudo</span> <span class="token function">dd</span> if<span class="token operator">=</span>/dev/zero of<span class="token operator">=</span>swap bs<span class="token operator">=</span>1M count<span class="token operator">=</span>1024
-
-<span class="token comment" spellcheck="true"># 格式化</span>
-<span class="token function">sudo</span> mkswap /var/swap
-
-<span class="token comment" spellcheck="true">#开启</span>
-<span class="token function">sudo</span> swapon /var/swap
-
-<span class="token comment" spellcheck="true"># 查看当前已生效的swap</span>
-swapon -s
-
-<span class="token comment" spellcheck="true"># 查看当前swap使用情况</span>
-<span class="token function">free</span> -m
-</code></pre>
-<p>然而重启后，你就会发现树莓派的 swap 又回到还原了。</p>
-<h4 id="正确的做法"><a href="#正确的做法" class="headerlink" title="正确的做法"></a>正确的做法</h4><p>如果你按照上面的方法做了，只需删除 swap 分区：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">sudo</span> swapoff /var/swap
-$ <span class="token function">sudo</span> <span class="token function">rm</span> /var/swap
-</code></pre>
-<p>然后开始真正的表演：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vi</span> /etc/dphys-swapfile
-</code></pre>
-<pre class=" language-bash"><code class="language-bash">CONF_SWAPSIZE<span class="token operator">=</span>1024
-</code></pre>
-<p>这一步是修改swap分区的大小。然后重新启动dphys-swapfile 文件服务：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> /etc/init.d/dphys-swapfile restart
-</code></pre>
-<p>最后查看大小：</p>
-<pre class=" language-bash"><code class="language-bash">$ <span class="token function">free</span> -h
-
-              total        used        <span class="token function">free</span>      shared  buff/cache   available
-Mem:           433M        132M         42M         34M        257M        215M
-Swap:          1.0G          0B        1.0G
-
-</code></pre>
-<p>如上图所示，已经成功更改了swap分区的大小。</p>
+                <p>刚毕业参加工作的时候，我立马就陷入了为难的境地。</p>
+<p>因为我所在的部门有好几个圈子，傻傻的我根本不知道该加入哪一个。</p>
+<p>当时公司有几个阵营，楠姐领头的圈子人丁旺盛，她斥巨资200元请我吃了顿饭,还给当时小鲜肉的我买了杯奶茶。昆哥领头的圈子志存高远，发誓要把楠姐斩于马下。</p>
+<p>最淡定的要数孙婷婷同志。作为一个低阶项目经理,她谁也不跟，平时独来独往，做自己的事，走自己的路。</p>
+<p>有一次我分到她的项目中一起做一个项目。似乎是设计一个车大灯总成的几个密封组件。同组七八个人，我是唯一的开发。（项目经理+质量工程师+采购工程师+物流工程师+生产部的协调人+我）</p>
+<p>每到中午，部门内各圈子的同事都各自在自己的QQ群里喊吃饭，约逛街，骂老板，谈八卦。（那时候微信还并不流行。）</p>
+<p>只有婷婷静静的，哪个QQ群也不进。她看见我也是个”闲云野鹤”一般的闲人，就邀请我一起吃午饭。</p>
+<p>吃饭时，我问婷婷我到底应该怎么和公司的小圈子相处，站谁的队比较好，她语出惊人，到今天我还记得原话：</p>
+<blockquote>
+<p>接近什么样的人，就会走什么样的路，所以不必让所有人都喜欢你。</p>
+</blockquote>
+<blockquote>
+<p>混错的圈子，不如不混。</p>
+</blockquote>
+<blockquote>
+<p>说不定，会活生生把自己的努力杀死。</p>
+</blockquote>
+<p>我当时懵懂地看着她，她笑着说，以后你就明白了。</p>
+<p>我没明白，而且越看越不明白。</p>
+<p>因为，我总是看到那些背着老板迟到早退，平日闲聊八卦消极对待工作的同事，基本上都没有丢工作，还活得相当轻松。</p>
+<p>他们都好好地活着，感觉活得十分自在快乐。</p>
+<p>工作好像就是他们的一项业余爱好，总是轻而易举就能完成。更难的似乎是如何在老板来到办公室之后闭上自己的嘴巴。</p>
+<p>而一直不爱站队的婷婷，好像挺没有人缘的。</p>
+<p>她总是接最别人嫌弃的项目，貌似过得更加不容易一些。边缘的项目，领导并不重视，获得的资源很少，分配到她手上的人似乎也总是能力不足，搞得她每天都加班到很晚。彼时的D市，我住在公司配给我的单身公寓里，房租水电都免费，美滋滋的。她买了套小房子，要坐班车上下班。很多时候都赶不上白班下班的班车，只能和中班（好像是晚上10点发车）的同事们一起回去。有时候熬夜到后半夜，只好在我们的单身公寓里凑合睡一会儿。</p>
+<p>然而，两年后，婷婷跳槽了。</p>
+<p>从普通的项目经理跳到一个新的行业，依旧做她的项目经理，薪水是个谜。直到后来我从公司辞职之后再去D市出差，见了她一面，那时的她已经年入百万。远远超过了当时我们公司的很多领导。</p>
+<p>而经过几年历练的我，也似乎明白了婷婷跟我说的话的意思：</p>
+<blockquote>
+<p>并不是不应该和同事搞好人际关系，而是不该混在和公司利益对立的圈子里。</p>
+</blockquote>
+<blockquote>
+<p>混在这样的人群里，我们一定会分神，一定会抱怨，也一定会传播无谓的负面情绪。</p>
+</blockquote>
+<blockquote>
+<p>一个人，如果进入了精神懒惰，那就等于精神死亡，是一种极其可怕的状态。</p>
+</blockquote>
+<p>而这几点，足以让所有的人都觉得你的能力大打折扣。</p>
+<p>分别的时候她告诉我：</p>
+<blockquote>
+<p>身处职场，其实就是身处一堆矛盾之中，有些矛盾，你根本解不开，有些矛盾，你根本不需要去解。但你必须学会一种本事，那就是抓住主要矛盾，只要这个主要矛盾抓住并且解决了，其余的矛盾，或者迎刃而解，或者不值一解。</p>
+</blockquote>
+<p>世上的事，不明白的隔重山，明白的隔层纸。不识庐山真面目，只缘身在此山中。</p>
 
             </div>
 
@@ -240,8 +236,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/04/07/树莓派swap分区的正确方法/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2019/04/07/树莓派swap分区的正确方法/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/2019/05/22/未名/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2019/05/22/未名/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
